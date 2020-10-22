@@ -18,15 +18,13 @@ public class Main {
             case "1":
                 System.out.println("GERAR QUANTOS CPFs?");
                 option = scanner.next();
-
                 for (int i = 0; i < Integer.parseInt(option); i++) {
                     fakeCPF.makeFakeCPF();
                 }
                 break;
             case "2":
                 System.out.println("DIGITE OS 11 NUMEROS DO CPF");
-                String op = scanner.next();
-                verficadorCPF.verificador(op);
+                verficadorCPF.verificador(scanner.next());
                 break;
             default:
                 System.out.println("Opção invalida");
