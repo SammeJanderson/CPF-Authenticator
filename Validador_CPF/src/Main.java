@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    static Scanner scanner =new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         FakeCPF fakeCPF = new FakeCPF();
@@ -13,25 +13,22 @@ public class Main {
 
         option = scanner.next();
 
-        switch (option){
-            case "1":
+        switch (option) {
+            case "1" -> {
                 System.out.println("GERAR QUANTOS CPFs?");
                 option = scanner.next();
-
                 for (int i = 0; i < Integer.parseInt(option); i++) {
                     fakeCPF.makeFakeCPF();
                 }
-                break;
-            case "2":
+            }
+            case "2" -> {
                 System.out.println("DIGITE OS 11 NUMEROS DO CPF");
                 String op = scanner.next();
-                verficadorCPF.verificador(op);
-                break;
-            default:
-                System.out.println("Opção invalida");
-                break;
+                VerficadorCPF.verificador(op);
+            }
+            default -> System.out.println("Opção invalida");
         }
 
 
-
-    }}
+    }
+}

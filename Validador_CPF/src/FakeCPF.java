@@ -5,56 +5,51 @@ import java.util.Random;
 public class FakeCPF {
 
 
-
-    static int m = 10;
-    static int n = 11;
-
-
     public void makeFakeCPF() {
         Random random = new Random();
         List<Integer> digits = new ArrayList<>();
         List<Integer> digitsMult = new ArrayList<>();
         String fakeCpf = "";
-        int mult = 0;
+        int multiplier;
 
         for (int i = 0; i < 9; i++) {
-            digits.add(random.nextInt(9));
+            digits.add(random.nextInt(10));
         }
 
 
-        mult = 10;
+        multiplier = 10;
         for (Integer n : digits) {
-            digitsMult.add(n * mult);
-            --mult;
+            digitsMult.add(n * multiplier);
+            --multiplier;
         }
-        int ver1 = 0;
+        int keyDigit1 = 0;
         for (Integer n : digitsMult) {
-            ver1 += n;
+            keyDigit1 += n;
         }
-        ver1 = (ver1 * 10) % 11;
-        if (ver1 == 10) {
-            ver1 = 0;
+        keyDigit1 = (keyDigit1 * 10) % 11;
+        if (keyDigit1 == 10) {
+            keyDigit1 = 0;
         }
 
-        digits.add(ver1);
+        digits.add(keyDigit1);
         digitsMult.clear();
 
-        mult = 11;
+        multiplier = 11;
         for (Integer n : digits) {
-            digitsMult.add(n * mult);
-            --mult;
+            digitsMult.add(n * multiplier);
+            --multiplier;
         }
 
-        int ver2 = 0;
+        int keyDigit2 = 0;
         for (Integer n : digitsMult) {
-            ver2 += n;
+            keyDigit2 += n;
         }
-        ver2 = (ver2 * 10) % 11;
-        if (ver2 == 10) {
-            ver2 = 0;
+        keyDigit2 = (keyDigit2 * 10) % 11;
+        if (keyDigit2 == 10) {
+            keyDigit2 = 0;
         }
 
-        digits.add(ver2);
+        digits.add(keyDigit2);
 
         for (Integer n : digits) {
             fakeCpf = fakeCpf.concat(Integer.toString(n));
@@ -62,7 +57,7 @@ public class FakeCPF {
 
         fakeCpf = new StringBuilder(fakeCpf)
                 .insert(fakeCpf.length() - 2, "-")
-                .insert(fakeCpf.length() - 4, ".")
+                .insert(fakeCpf.length() - 5, ".")
                 .insert(fakeCpf.length() - 8, ".")
                 .toString();
 

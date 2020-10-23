@@ -3,18 +3,15 @@ import java.util.List;
 
 
 class VerficadorCPF {
-    static String cpf = "";
-    static String digitoValidador ="";
-    static List<Integer> digits = new ArrayList<>();
 
 
-    public static void verificador(String x){
-        if(x.length() !=11){
+    public static void verificador(String x) {
+        if (x.length() != 11) {
             System.out.println("CPF INVALIDO");
-        }else {
+        } else {
 
             String cpf = x;
-            String digitoValidador = "";
+            String digitoValidador;
             List<Integer> digits = new ArrayList<>();
 
             digitoValidador = cpf.substring(9, 11);
@@ -24,42 +21,42 @@ class VerficadorCPF {
             for (int i = 0; i < 9; i++) {
                 digits.add(Integer.parseInt(cpf.substring(i, (i + 1))));
             }
-            int m = 10;
-            int total1 = 0;
-            int total2 = 0;
-            String total3;
+            int multiplier = 10;
+            int keyDigit1 = 0;
+            int keyDigit2 = 0;
+            String keyDigit3;
 
             for (Integer n : digits) {
-                total1 += (n * m);
-                m -= 1;
+                keyDigit1 += (n * multiplier);
+                multiplier -= 1;
             }
-            total1 = (total1 * 10) % 11;
-            if (total1 == 10) {
-                total1 = 0;
+            keyDigit1 = (keyDigit1 * 10) % 11;
+            if (keyDigit1 == 10) {
+                keyDigit1 = 0;
             }
-            digits.add(total1);
+            digits.add(keyDigit1);
 
 
-            m = 11;
+            multiplier = 11;
             for (Integer n : digits) {
-                total2 += (n * m);
-                m -= 1;
+                keyDigit2 += (n * multiplier);
+                multiplier -= 1;
             }
-            total2 = (total2 * 10) % 11;
-            if (total2 == 10) {
-                total2 = 0;
+            keyDigit2 = (keyDigit2 * 10) % 11;
+            if (keyDigit2 == 10) {
+                keyDigit2 = 0;
             }
 
-            total3 = Integer.toString(total1).concat(Integer.toString(total2));
+            keyDigit3 = Integer.toString(keyDigit1).concat(Integer.toString(keyDigit2));
 
             cpf = new StringBuilder(cpf)
                     .insert(cpf.length() - 2, "-")
-                    .insert(cpf.length() - 4, ".")
+                    .insert(cpf.length() - 5, ".")
                     .insert(cpf.length() - 8, ".")
                     .toString();
 
 
-            if (digitoValidador.equals(total3)) {
+            if (digitoValidador.equals(keyDigit3)) {
                 System.out.printf("O CPF %s É VALIDO", cpf);
             } else {
                 System.out.printf("O CPF %s É INVALIDO", cpf);
