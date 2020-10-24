@@ -3,13 +3,15 @@ import java.util.List;
 import java.util.Random;
 
 public class FakeCPF {
+    static String fakeCPFs = "";
 
 
-    public void makeFakeCPF() {
+    public static void makeFakeCPF() {
+        String fakeCpf = "";
         Random random = new Random();
         List<Integer> digits = new ArrayList<>();
         List<Integer> digitsMult = new ArrayList<>();
-        String fakeCpf = "";
+
         int multiplier;
 
         for (int i = 0; i < 9; i++) {
@@ -55,16 +57,14 @@ public class FakeCPF {
             fakeCpf = fakeCpf.concat(Integer.toString(n));
         }
 
-        fakeCpf = new StringBuilder(fakeCpf)
-                .insert(fakeCpf.length() - 2, "-")
-                .insert(fakeCpf.length() - 5, ".")
-                .insert(fakeCpf.length() - 8, ".")
-                .toString();
+        fakeCpf = fakeCpf.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
 
-        System.out.println(fakeCpf);
+        fakeCPFs = fakeCpf;
 
-    }
-}
+
+    }}
+
+
 
 
 

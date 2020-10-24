@@ -5,12 +5,8 @@ import java.util.List;
 class VerficadorCPF {
 
 
-    public static void verificador(String x) {
-        if (x.length() != 11) {
-            System.out.println("CPF INVALIDO");
-        } else {
-
-            String cpf = x;
+    public static boolean verificador(String x) {
+                    String cpf = x;
             String digitoValidador;
             List<Integer> digits = new ArrayList<>();
 
@@ -49,20 +45,16 @@ class VerficadorCPF {
 
             keyDigit3 = Integer.toString(keyDigit1).concat(Integer.toString(keyDigit2));
 
-            cpf = new StringBuilder(cpf)
-                    .insert(cpf.length() - 2, "-")
-                    .insert(cpf.length() - 5, ".")
-                    .insert(cpf.length() - 8, ".")
-                    .toString();
+            cpf = cpf.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
 
 
             if (digitoValidador.equals(keyDigit3)) {
-                System.out.printf("O CPF %s É VALIDO", cpf);
+                return true;
             } else {
-                System.out.printf("O CPF %s É INVALIDO", cpf);
-            }
-        }
 
+            }
+
+        return false;
     }
 
 }
