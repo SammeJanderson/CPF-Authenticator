@@ -1,14 +1,14 @@
-# CPF_Authenticator
+## CPF_Authenticator
 
-## About
+### About
 
 A java application that allow to generate and verify CPFs (Cadastro de Pessoa Física). 
 
 
-# Technologies
+## Technologies
 + java 15
 
-# The Algorithm.
+## The Algorithm.
 
 The CPF is composed by eleven integers following the mask "###.###.###-##". To validate a CPF we need to process the first nine digits and the result must match the last two digits. 
 
@@ -47,13 +47,13 @@ Now we do the second digit adding the first one in the process and multiplying f
 We got the result 92 confirming that 864.704.528-92 is a valid CPF.
 
 
-## the program
+### The program
 
-### Authentication
+#### Authentication
   
   To authenticate CPF the program just follow the algorithm above on the user input.
   
-### Generation
+#### Generation
 
   To generate valid CPFs the program first randomly generated 9 numbers ranging from 0 to 9. Then do the math to generate the last two digits.
   One problem with this approach is that the program can generate invalid CPF that can be validated by the algorithm  like 000.000.000-00, 111.111.111-11 etc. 
