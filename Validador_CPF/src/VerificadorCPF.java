@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-class VerficadorCPF {
+class VerificadorCPF {
 
 
     public static boolean verificador(String x) {

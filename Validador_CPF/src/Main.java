@@ -24,8 +24,8 @@ public class Main {
             case "2" -> {
                 System.out.println("DIGITE OS 11 NUMEROS DO CPF");
                 String op = scanner.next().trim();
-                if (VerficadorCPF.verificador(op)) System.out.println("CPF VÁLIDO");
-                else System.out.println("CPF INVALIDO");
+                System.out.println(VerificadorCPF.verificador(op) ? "CPF VÁLIDO" : "CPF INVALIDO");
+//
             }
             default -> System.out.println("Opção invalida");
         }
