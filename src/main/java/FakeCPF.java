@@ -62,7 +62,8 @@ public class FakeCPF {
         fakeCPFs = fakeCpf;
 
 
-    }}
+    }
+}
 
 
 

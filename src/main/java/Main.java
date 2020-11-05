@@ -7,7 +7,7 @@ public class Main {
         int option = -1;
 
 
-        while (option !=0) {
+        while (option != 0) {
             System.out.println("\nEscolha uma opção\n----------------\n0.Exit | 1.Gerar CPF| 2.Validar CPF");
 
             option = scanner.nextInt();
@@ -29,6 +29,7 @@ public class Main {
                 case 2 -> {
                     System.out.println("DIGITE OS 11 NUMEROS DO CPF");
                     String op = scanner.next().trim();
+
                     System.out.println(VerificadorCPF.verificador(op) ? "CPF VÁLIDO" : "CPF INVALIDO");
 
                 }
@@ -38,4 +39,5 @@ public class Main {
 
 
     }
+
 }

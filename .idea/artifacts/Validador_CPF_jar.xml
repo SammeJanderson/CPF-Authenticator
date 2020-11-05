@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="Validador_CPF:jar">
+  <artifact type="jar" build-on-make="true" name="Validador_CPF:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Validador_CPF_jar</output-path>
     <root id="archive" name="Validador_CPF.jar">
       <element id="module-output" name="Validador_CPF" />
